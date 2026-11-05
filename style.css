@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+/* ===== כללי ===== */
+body {
+    color: #333333;
+    background-color: #eef0f3;
+}
+
+/* ===== ראש הדף והתפריט ===== */
+#recipe-title {
+    color: darkred;
+    font-size: 40px;
+}
+
+#nav a:hover {
+    color: darkred;
+}
+
+.container {
+    width: 900px;
+}
+
+.intro {
+    font-size: 20px;
+    color: #444444;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+#main-image {
+    width: 400px;
+    box-shadow: 0 2px 8px gray;
+}
+
+/* ===== אזורי התוכן ===== */
+h2 {
+    color: #2e5597;
+}
+
+.block {
+    background-color: white;
+    width: 700px;
+    box-shadow: 0 2px 8px gray;
+}
+
+.block:hover {
+    box-shadow: 0 6px 18px gray;
+}
+
+/* ===== רשימות וטבלה ===== */
+.ingredients-list li:first-child {
+    color: green;
+}
+
+.steps-list li:last-child {
+    color: darkorange;
+}
+
+#info-table {
+    width: 100%;
+}
+
+tbody tr:hover {
+    background-color: #ffe9a8;
+}
+
+.side-image {
+    width: 200px;
+    height: 200px;
+}
+
+/* ===== פסאודו-אלמנטים ===== */
+.ingredients-list li::before {
+    content: "✓ ";
+    color: green;
+}
+
+h2::after {
+    content: " •";
+    color: darkorange;
+}
+
+#page-footer p::before {
+    content: "© ";
+}
+
+/*
+תשובה א: עדיף סלקטור class אחד (.block). חוק אחד חל על כל חמשת האזורים בבת אחת, ואם נוסיף אזור שישי הוא יקבל את העיצוב בלי לכתוב עוד קוד. id הוא שם ייחודי לאלמנט אחד, ולכן היינו צריכים לכתוב חמישה חוקים זהים.
+תשובה ב: התמונה התעוותה (נמתחה או כווצה), כי כשקובעים גם רוחב וגם גובה קבועים הדפדפן מכריח אותה להתאים לשתי המידות, ושובר את היחס המקורי בין הרוחב לגובה. כדי למנוע את זה קובעים רק מידה אחת (למשל רק רוחב), והדפדפן מחשב את השנייה לבד.
+*/
