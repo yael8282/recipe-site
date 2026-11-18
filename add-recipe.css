@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+/* שתי בעיות שמצאנו ברוחב 375 לפני ההתאמה: הריפוד הגדול מצמצם את מקום השדות, והכפתור קטן ולא נוח ללחיצה באצבע. */
+/* ברוחב של 700 פיקסלים שלושת השדות הקטנים קופצים לשורה אחת. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 1rem;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field > label,
+legend {
+    font-weight: bold;
+}
+
+input:not([type="checkbox"], [type="radio"]),
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2e5597;
+    outline: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: #2e5597;
+}
+
+button {
+    width: 100%;
+    background-color: #2e5597;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    min-height: 44px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1f3c70;
+}
+
+@media (width >= 700px) {
+    form {
+        padding: 2rem;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+
+    .row .field {
+        flex: 1;
+    }
+
+    button {
+        width: auto;
+        align-self: center;
+    }
+}
+
+/*
+שאלה א': id הוא שם ייחודי לאלמנט אחד בדף, ומשמש לחיבור בין label לקלט ולעיצוב. name הוא השם שבו הנתון נשלח עם הטופס. לכל כפתורי הרדיו של סוג המנה יש אותו name כדי שהדפדפן ידע שהם קבוצה אחת, ויאפשר לבחור רק אחד מהם.
+שאלה ב': כתבנו קודם את העיצוב של המסך הקטן כי הוא הפשוט ביותר, ואז הוספנו שדרוגים למסכים רחבים בעזרת width >= 700px. אילו היינו כותבים את ה-Media Query לפני הכללים הרגילים, הכללים הרגילים שמופיעים אחריו בקובץ היו דורסים אותו (כי כשלכללים יש אותה עוצמה, הכלל המאוחר בקובץ מנצח), והשדרוג לא היה משפיע.
+שאלה ג': אחרי הלחיצה על שליחה נוספו לכתובת הדף הנתונים שהוקלדו, בצורה title=...&kind=... לדוגמה. זה מלמד שהתכונה name קובעת את שם הנתון שנשלח: שדה בלי name לא נשלח בכלל.
+*/
